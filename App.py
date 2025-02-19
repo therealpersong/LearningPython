@@ -1,49 +1,24 @@
-questions = ("How many elements are in the periodic table?: ",
-                       "Which animal lays the largest eggs?: ",
-                       "What is the most abundant gas in Earth's atmosphere?: ",
-                       "How many bones are in the human body?: ",
-                       "Which planet in the solar system is the hottest?: ")
+capitals = {"USA": "Washington D.C",
+            "India": "New Delhi",
+            "China": "Bejing",
+            "Russia": "Moscow"}
 
-options = (("A. 116", "B. 117", "C. 118", "D. 119"),
-                   ("A. Whale", "B. Crocodile", "C. Elephant", "D. Ostrich"),
-                   ("A. Nitrogen", "B. Oxygen", "C. Carbon-Dioxide", "D. Hydrogen"),
-                   ("A. 206", "B. 207", "C. 208", "D. 209"),
-                   ("A. Mercury", "B. Venus", "C. Earth", "D. Mars"))
+capitals.update({"Germany": "Berlin"})
 
-answers = ("C", "D", "A", "A", "B")
-guesses = []
-score = 0
-question_num = 0
+#capitals.update({"USA": "Detroit"})
+#capitals.pop("China")
+#capitals.popitem()
+#capitals.clear()
 
-for question in questions:
-    print("----------------------")
-    print(question)
-    for option in options[question_num]:
-        print(option)
+keys = capitals.keys()
 
-    guess = input("Enter (A, B, C, D): ").upper()
-    guesses.append(guess)
-    if guess == answers[question_num]:
-        score += 1
-        print("CORRECT!")
-    else:
-        print("INCORRECT!")
-        print(f"{answers[question_num]} is the correct answer")
-    question_num += 1
+#for key in capitals.keys():
+    #print(key)
 
-print("----------------------")
-print("       RESULTS        ")
-print("----------------------")
+#values = capitals.values()
+#for value in capitals.values():
+    #print(value)
 
-print("answers: ", end="")
-for answer in answers:
-    print(answer, end=" ")
-print()
-
-print("guesses: ", end="")
-for guess in guesses:
-    print(guess, end=" ")
-print()
-
-score = int(score / len(questions) * 100)
-print(f"Your score is: {score}%")
+items = capitals.items()
+for key, value in capitals.items():
+    print(f"{key}: {value}")
