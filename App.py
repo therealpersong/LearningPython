@@ -1,32 +1,56 @@
+# ● ┌ ─ ┐ │ └ ┘
+
 import random
 
-options = ("rock", "paper", "scissors")
-running = True
+dice_art = {
+    1: ("┌─────────┐",
+        "│         │",
+        "│    ●    │",
+        "│         │",
+        "└─────────┘"),
+    2: ("┌─────────┐",
+        "│  ●      │",
+        "│         │",
+        "│      ●  │",
+        "└─────────┘"),
+    3: ("┌─────────┐",
+        "│  ●      │",
+        "│    ●    │",
+        "│      ●  │",
+        "└─────────┘"),
+    4: ("┌─────────┐",
+        "│  ●   ●  │",
+        "│         │",
+        "│  ●   ●  │",
+        "└─────────┘"),
+    5: ("┌─────────┐",
+        "│  ●   ●  │",
+        "│    ●    │",
+        "│  ●   ●  │",
+        "└─────────┘"),
+    6: ("┌─────────┐",
+        "│  ●   ●  │",
+        "│  ●   ●  │",
+        "│  ●   ●  │",
+        "└─────────┘")
+}
 
-while running:
+dice = []
+total = 0
+num_of_dice = int(input("How many dice?: "))
 
-    player = None
-    computer = random.choice(options)
+for die in range(num_of_dice):
+    dice.append(random.randint(1,6))
 
-    while player not in options:
-        print("Incorrect choice")
-        player = input("Enter a choice (rock, paper, scissors): ")
+# for die in range(num_of_dice):
+#   for line in dice_art.get(dice[die]):
+#      print(line)
 
-    print(f"Player: {player}")
-    print(f"Computer: {computer}")
+for line in range(5):
+    for die in dice:
+        print(dice_art.get(die)[line], end="")
+    print()
 
-    if player == computer:
-        print("It's a tie!")
-    elif player == "rock" and computer == "scissors":
-        print("You win!")
-    elif player == "paper" and computer == "rock":
-        print("You win!")
-    elif player == "scissors" and computer == "paper":
-        print("You win!")
-    else:
-        print("You lose!")
-
-    if not input("Play again? (y/n): ").lower() == "y":
-        running = False
-
-print("Thanks for playing!")
+for die in dice:
+    total += die
+print(f"total: {total}")
